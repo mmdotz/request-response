@@ -69,13 +69,12 @@ loop do
     elsif
       user1 = User.find(1)
       puts "#{user1.first_name} #{user1.last_name}"
-
     end
+    # if @params[:id] is not in the table
+    #   raise an error
 
-    # puts "request:\n" @request
-    # puts "params\n" @params
-    # puts @params[:id]
-    # puts @params[:action]
+
+
     # YOUR CODE GOES ABOVE HERE  ^
   end
 end
