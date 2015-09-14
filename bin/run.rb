@@ -1,4 +1,6 @@
 require_relative '../db/setup'
+require_relative '../lib/user.rb'
+require 'pry'
 # Remember to put the requires here for all the classes you write and want to use
 
 def parse_params(uri_fragments, query_param_string)
@@ -54,11 +56,26 @@ loop do
   else
     @request = parse(raw_request)
     @params  = @request[:params]
+
     # Use the @request and @params ivars to full the request and
     # return an appropriate response
 
     # YOUR CODE GOES BELOW HERE
+    if @params[:id] == nil
+      full_list = User.all
+      full_list.each do |record|
+        puts "#{record.first_name} #{record.last_name}"
+      end
+    elsif
+      user1 = User.find(1)
+      puts "#{user1.first_name} #{user1.last_name}"
 
+    end
+
+    # puts "request:\n" @request
+    # puts "params\n" @params
+    # puts @params[:id]
+    # puts @params[:action]
     # YOUR CODE GOES ABOVE HERE  ^
   end
 end
