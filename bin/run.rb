@@ -61,16 +61,16 @@ loop do
     # return an appropriate response
 
     # YOUR CODE GOES BELOW HERE
-    if
-      number = @params[:id].to_i
-      number < User.all.length
+    number = @params[:id].to_i
+
+    if number > User.all.length
       # @params[:response] == "users" && User.where(id: number).empty?
       puts "500 Error - Record Not Found"
     end
-    if
-      number = @params[:id]
+    if number = @params[:id]
       user1 = User.find(number)
       puts "#{user1.first_name} #{user1.last_name}"
+      exit
     end
     if @params[:id] == nil   #working
       full_list = User.all
