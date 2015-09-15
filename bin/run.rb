@@ -67,11 +67,26 @@ loop do
         puts "#{record.first_name} #{record.last_name}"
       end
     elsif
-      user1 = User.find(1)
+      number = @params[:id].to_i
+      User.where(id: number).empty?
+      puts "500 Error - Record Not Found"
+    else
+      user1 = User.find(number)
       puts "#{user1.first_name} #{user1.last_name}"
     end
-    # if @params[:id] is not in the table
-    #   raise an error
+
+
+=begin
+tried:
+elsif
+      number = @params[:id].to_i
+      number.exists?
+      user1 = User.find(number)
+      puts "#{user1.first_name} #{user1.last_name}"
+    else
+      puts "error"
+    end
+=end
 
 
 
