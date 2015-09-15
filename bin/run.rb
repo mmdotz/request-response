@@ -61,35 +61,23 @@ loop do
     # return an appropriate response
 
     # YOUR CODE GOES BELOW HERE
-    if @params[:id] == nil
+    if
+      number = @params[:id].to_i
+      number < User.all.length
+      # @params[:response] == "users" && User.where(id: number).empty?
+      puts "500 Error - Record Not Found"
+    end
+    if
+      number = @params[:id]
+      user1 = User.find(number)
+      puts "#{user1.first_name} #{user1.last_name}"
+    end
+    if @params[:id] == nil   #working
       full_list = User.all
       full_list.each do |record|
         puts "#{record.first_name} #{record.last_name}"
       end
-    elsif
-      number = @params[:id].to_i
-      User.where(id: number).empty?
-      puts "500 Error - Record Not Found"
-    else
-      user1 = User.find(number)
-      puts "#{user1.first_name} #{user1.last_name}"
     end
-
-
-=begin
-tried:
-elsif
-      number = @params[:id].to_i
-      number.exists?
-      user1 = User.find(number)
-      puts "#{user1.first_name} #{user1.last_name}"
-    else
-      puts "error"
-    end
-=end
-
-
-
     # YOUR CODE GOES ABOVE HERE  ^
   end
 end
