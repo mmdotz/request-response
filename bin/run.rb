@@ -56,13 +56,14 @@ loop do
   else
     @request = parse(raw_request)
     @params  = @request[:params]
+    # binding pry
 
     # Use the @request and @params ivars to full the request and
     # return an appropriate response
 
     # YOUR CODE GOES BELOW HERE
     number = @params[:id].to_i
-
+=begin
     if number > User.all.length
       # @params[:response] == "users" && User.where(id: number).empty?
       puts "500 Error - Record Not Found"
@@ -72,11 +73,19 @@ loop do
       puts "#{user1.first_name} #{user1.last_name}"
       exit
     end
-    if @params[:id] == nil   #working
+    if @params[:id] == nil
       full_list = User.all
       full_list.each do |record|
         puts "#{record.first_name} #{record.last_name}"
       end
+    end
+=end
+    if
+      puts @params[:action]
+      list_with_s = User.where(:first_name).starts_with?("S")
+      puts list_with_s
+    else
+      puts "There are no names starting with 'S'"
     end
     # YOUR CODE GOES ABOVE HERE  ^
   end
