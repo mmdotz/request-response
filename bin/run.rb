@@ -3,23 +3,6 @@ require_relative '../lib/user.rb'
 require 'pry'
 # Remember to put the requires here for all the classes you write and want to use
 
-def build_table
-  User.create({first_name: "Michelle", last_name:"Dotzenrod", age: 78})
-  User.create({first_name: "Annika", last_name:"Dotzenrod", age: 10})
-  User.create({first_name: "Jayson", last_name:"Dotzenrod", age: 34})
-  User.create({first_name: "Jamie", last_name:"Dotzenrod", age: 5})
-  User.create({first_name: "Paul", last_name:"Dotzenrod", age: 3})
-  User.create({first_name: "Allan", last_name:"Dotzenrod", age: 12})
-  User.create({first_name: "Meeps", last_name:"Dotzenrod", age: 12})
-  User.create({first_name: "Marilyn", last_name:"Dotzenrod", age: 15})
-  User.create({first_name: "Michael", last_name:"Dotzenrod", age: 12})
-  User.create({first_name: "Meredith", last_name:"Dotzenrod", age: 12})
-  User.create({first_name: "Michaela", last_name:"Dotzenrod", age: 15})
-  User.create({first_name: "Maggie", last_name:"Dotzenrod", age: 12})
-  User.create({first_name: "Molly", last_name:"Dotzenrod", age: 22})
-  User.create({first_name: "Miech", last_name:"Dotzenrod", age: 42})
-end
-
 def parse_params(uri_fragments, query_param_string)
   params = {}
   params[:resource]  = uri_fragments[3]
@@ -60,7 +43,6 @@ def parse(raw_request)
 end
 
 system('clear')
-build_table
 # binding pry
 loop do
   print "Supply a valid HTTP Request URL (h for help, q to quit) > "
@@ -82,11 +64,14 @@ loop do
 
     # YOUR CODE GOES BELOW HERE
     number = @params[:id].to_i
-
     if number > User.all.length
-      # @params[:response] == "users" && User.where(id: number).empty?
+      full_list = User.all
       puts "500 Error - Record Not Found"
+       next
+    else
+      puts full_list
     end
+
 
     if number = @params[:id]
       user1 = User.find(number)
