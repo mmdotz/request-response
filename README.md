@@ -9,13 +9,13 @@ Show the users with certain parameters, via a `GET` request.
 
 ##Instructions
 To see ALL the users from the database printed out with an appropriate response codes:
-`GET` : at http://localhost:3000/users HTTP/1.1
+`GET` : at `http://localhost:3000/users HTTP/1.1`
 
 To see ONLY the user from the database with a certain id:
-`GET` : at http://localhost:3000/users/1 HTTP/1.1
+`GET` : at `http://localhost:3000/users/1 HTTP/1.1`
 
 To see a message saying the user was not found along with the appropriate response code.
-`GET` : at http://localhost:3000/users/9999999 HTTP/1.1
+`GET` : at `http://localhost:3000/users/9999999 HTTP/1.1`
 
 
 ## Rundown
